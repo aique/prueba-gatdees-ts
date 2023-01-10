@@ -9,7 +9,11 @@ export class BattlefieldController {
     }
     
     public async actionRadar(req: Request, res: Response) {
-        this.mapper.map(req.body);
-        res.status(200).send('');
+        try {
+            this.mapper.map(req.body);
+            res.status(200).send('');
+        } catch (err: any) {
+            res.status(500).send(err.message);
+        }
     }
 }
