@@ -21,11 +21,11 @@ export default function configureDI(): IDIContainer {
      */ 
     [BattlefieldProtocolFactory.name]: object(BattlefieldProtocolFactory).construct([
       {name: BattlefieldProtocolFactory.FURTHEST_ENEMIES_PROTOCOL, value: new FurthestEnemiesProtocol()},
-      {name: BattlefieldProtocolFactory.CLOSEST_ENEMIES_PROTOCOL, value: new ClosestEnemiesProtocol},
-      {name: BattlefieldProtocolFactory.ASSIST_ALLIES_PROTOCOL, value: new AssistAlliesProtocol},
-      {name: BattlefieldProtocolFactory.AVOID_CROSSFIRE_PROTOCOL, value: new AvoidCrossfireProtocol},
-      {name: BattlefieldProtocolFactory.PRIORITIZE_MECH_PROTOCOL, value: new PrioritizeMechProtocol},
-      {name: BattlefieldProtocolFactory.AVOID_MECH_PROTOCOL, value: new AvoidMechProtocol},
+      {name: BattlefieldProtocolFactory.CLOSEST_ENEMIES_PROTOCOL, value: new ClosestEnemiesProtocol()},
+      {name: BattlefieldProtocolFactory.ASSIST_ALLIES_PROTOCOL, value: new AssistAlliesProtocol()},
+      {name: BattlefieldProtocolFactory.AVOID_CROSSFIRE_PROTOCOL, value: new AvoidCrossfireProtocol()},
+      {name: BattlefieldProtocolFactory.PRIORITIZE_MECH_PROTOCOL, value: new PrioritizeMechProtocol()},
+      {name: BattlefieldProtocolFactory.AVOID_MECH_PROTOCOL, value: new AvoidMechProtocol()},
     ]),
     /**
      * Battlefield
