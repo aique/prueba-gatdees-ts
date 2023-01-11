@@ -10,8 +10,8 @@ de objetivos (`BattlefieldTarget`) y una estrategia de ataque (`BattlefieldAttac
 
 Para obtener el siguiente objetivo a atacar, todos los posibles objetivos ubicados
 en el campo de batalla serán filtrados por la estrategia de ataque, la cual devolverá
-sólamente aquellos objetivos que cumplan con los protocolos, en orden de mayor a menor
-cumplimiento. El primer objetivo de esta lista será el fijado como siguiente objetivo.
+sólamente aquellos objetivos que cumplan con los protocolos. El primer objetivo de esta
+lista será el fijado como siguiente objetivo.
 
 ## Estrategia de ataque
 
