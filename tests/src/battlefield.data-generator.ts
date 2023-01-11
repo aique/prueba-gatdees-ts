@@ -1,11 +1,12 @@
 import { BattlefieldEnemy } from "../../src/battlefield/entity/battlefield.enemy";
+import { BattlefieldProtocolFactory } from "../../src/battlefield/strategy/protocol/battlefield.protocol-factory";
 import { BattlefieldSchemaType } from "../../src/battlefield/validation/battlefield.schema";
 
 export class BattlefieldDataGenerator {
     static getValidData(): BattlefieldSchemaType {
         return {
             'protocols': [
-                'protocolA'
+                BattlefieldProtocolFactory.CLOSEST_ENEMIES_PROTOCOL
             ],
             'scan': [
                 {

@@ -11,7 +11,7 @@ export interface BattlefieldProtocol {
     /**
      * Obtiene el listado de protocolos incompatibles con el actual.
      */
-    getIncompatibleProtocols(): BattlefieldProtocol[];
+    getIncompatibleProtocols(): string[];
 
     /**
      * Indica si el protocolo es dependiente de otro,

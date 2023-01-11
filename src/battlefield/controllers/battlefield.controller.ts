@@ -16,7 +16,7 @@ export class BattlefieldController {
             let nextTarget: BattlefieldTarget|null = battlefield.nextTarget();
 
             if (nextTarget) {
-                res. status(200).send('');
+                res. status(200).send(JSON.stringify(nextTarget.getCoordinates()));
                 return;
             }
 

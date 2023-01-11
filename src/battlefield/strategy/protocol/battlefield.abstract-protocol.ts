@@ -1,8 +1,7 @@
 import { BattlefieldTarget } from "../../entity/battlefield.target";
 import { BattlefieldProtocol } from "./battlefield.protocol";
 
-export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol
-{
+export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol {
     prioritizeTargets(targets: BattlefieldTarget[]): BattlefieldTarget[] {
         const prioritizedTargets: BattlefieldTarget[] = [];
 
@@ -24,7 +23,7 @@ export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol
      *
      * Será sobreescrito en función de sus necesidades.
      */
-    initialize(targets: BattlefieldTarget[]): void {}
+    protected initialize(targets: BattlefieldTarget[]): void {}
 
     /**
      * Condición que debe
@@ -42,7 +41,11 @@ export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol
      * que han de aplicarse previamente,
      * de forma que puedan ser combinados.
      */
-    protected abstract getDependencies(): string[];
+    protected getDependencies(): string[] {
+        return [];
+    }
 
-    abstract getIncompatibleProtocols(): BattlefieldProtocol[];
+    getIncompatibleProtocols(): string[] {
+        return [];
+    };
 }

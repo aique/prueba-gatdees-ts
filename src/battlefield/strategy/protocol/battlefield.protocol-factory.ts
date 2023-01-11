@@ -1,5 +1,10 @@
 import { BattlefieldProtocol } from "./battlefield.protocol";
 
+interface ProtocolItem {
+    name: string,
+    value: BattlefieldProtocol
+}
+
 export class BattlefieldProtocolFactory {
     static readonly CLOSEST_ENEMIES_PROTOCOL = 'closest-enemies';
     static readonly FURTHEST_ENEMIES_PROTOCOL = 'furthest-enemies';
@@ -8,18 +13,20 @@ export class BattlefieldProtocolFactory {
     static readonly PRIORITIZE_MECH_PROTOCOL = 'prioritize-mech';
     static readonly AVOID_MECH_PROTOCOL = 'avoid-mech';
 
-    private protocols: {name: string, value: BattlefieldProtocol}[];
+    private protocols: ProtocolItem[];
 
-    constructor(protocols: {name: string, value: BattlefieldProtocol}[]) {
+    constructor(protocols: ProtocolItem[]) {
         this.protocols = protocols;
     }
 
     create(name: string): BattlefieldProtocol|null {
-        this.protocols.forEach(protocol => {
-            if (protocol.name === name) {
-                return protocol.value; // TODO revisar funcionamiento
+        for (let i: number = 0; i < this.protocols.length; i++) {
+            const currentProtocol: ProtocolItem = this.protocols[i];
+
+            if (currentProtocol.name === name) {
+                return currentProtocol.value;
             }
-        });
+        }
 
         return null;
     }

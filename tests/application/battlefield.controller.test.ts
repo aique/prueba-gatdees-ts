@@ -30,6 +30,6 @@ describe("Battlefield controller validation", () => {
         await controller.actionRadar(req, res);
 
         expect(res.status).toHaveBeenCalledWith(200);
-        expect(res.send).toHaveBeenCalledWith('');
+        expect(res.send).toHaveBeenCalledWith('{"x":0,"y":40}');
     });
 });
