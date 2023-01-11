@@ -36,9 +36,9 @@ Los tests proporcionados por la Nueva República podrán ejecutarse una vez arra
 
 ### Comprobando los test de la Nueva República
 
-Los test proporcionados por la Nueva República se han ubicado en la
-carpeta `tests` del proyecto, y para su ejecución será necesario el
-siguiente comando:
+Los test proporcionados por la Nueva República se han ubicado en la carpeta
+`tests/bin` del proyecto. Para su ejecución será necesario el siguiente comando
+una vez arrancada la aplicación mediante los pasos previamente citados:
 
 ```
 ./tests/bin/tests.sh
