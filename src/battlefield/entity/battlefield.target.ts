@@ -29,8 +29,8 @@ export class BattlefieldTarget {
     }
 
     getDistance(origin: BattlefieldCoordinates): number {
-        let x: number = this.getCoordinates().getX();
-        let y: number = this.getCoordinates().getY();
+        const x: number = this.getCoordinates().getX();
+        const y: number = this.getCoordinates().getY();
 
         return Math.sqrt(Math.pow((origin.getX() - x), 2) + Math.pow((origin.getY() - y), 2));
     }

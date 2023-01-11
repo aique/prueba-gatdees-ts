@@ -37,7 +37,7 @@ export class Battlefield {
      * y simplemente retorna el primero de ellos.
      */
     nextTarget(): BattlefieldTarget|null {
-        let prioritizedTargets: BattlefieldTarget[] = this.attackStrategy.prioritizeTargets(this.targets);
+        const prioritizedTargets: BattlefieldTarget[] = this.attackStrategy.prioritizeTargets(this.targets);
 
         if (!prioritizedTargets.length) {
             return null;
