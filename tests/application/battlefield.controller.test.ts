@@ -44,4 +44,16 @@ describe("Battlefield controller validation", () => {
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.send).toHaveBeenCalledWith('{"x":0,"y":80}');
     });
+
+    test('multiple protocol test', async () => {
+        const req = getMockReq();
+        const { res, next } = getMockRes();
+        
+        req.body = BattlefieldDataGenerator.getMultipleProtocolsCase();
+
+        await controller.actionRadar(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.send).toHaveBeenCalledWith('{"x":0,"y":10}');
+    });
 });

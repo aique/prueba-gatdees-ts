@@ -43,4 +43,29 @@ export class BattlefieldDataGenerator {
             }]
         };
     }
+
+    static getMultipleProtocolsCase(): BattlefieldSchemaType {
+        return {
+            'protocols':['closest-enemies', 'avoid-mech'],
+            'scan':[{
+                'coordinates': {'x': 0, 'y': 1},
+                'enemies':{
+                    'type': 'mech',
+                    'number': 1
+                }
+            }, {
+                'coordinates': {'x': 0, 'y': 10},
+                'enemies': {
+                    'type': 'soldier',
+                    'number': 10
+                }
+            },{
+                'coordinates': {'x': 0, 'y': 99},
+                'enemies': {
+                    'type': 'mech',
+                    'number': 1
+                }
+            }]
+        };
+    }
 }

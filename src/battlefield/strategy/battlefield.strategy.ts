@@ -14,9 +14,7 @@ export class BattlefieldAttackStrategy {
             const currentProtocol: BattlefieldProtocol = this.protocols[i];
 
             if (currentProtocol.isDependent(protocol)) {
-                this.protocols = this.addProtocolAtPosition(
-                    protocol, i
-                );
+                this.addProtocolAtPosition(protocol, i);
 
                 return;
             }
@@ -25,8 +23,8 @@ export class BattlefieldAttackStrategy {
         this.protocols.push(protocol);
     }
 
-    private addProtocolAtPosition(protocol: BattlefieldProtocol, position: number): BattlefieldProtocol[] {
-        return this.protocols.splice(position, 0, protocol);
+    private addProtocolAtPosition(protocol: BattlefieldProtocol, position: number): void {
+        this.protocols.splice(position, 0, protocol);
     }
 
     getProtocols(): BattlefieldProtocol[] {
