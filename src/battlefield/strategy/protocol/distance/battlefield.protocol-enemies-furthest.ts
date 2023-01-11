@@ -1,5 +1,6 @@
 import { BattlefieldCoordinates } from "../../../entity/battlefield.coordinates";
 import { BattlefieldTarget } from "../../../entity/battlefield.target";
+import { BattlefieldProtocolFactory } from "../battlefield.protocol-factory";
 import { DistanceAbstractProtocol } from "./battlefield.abstract-distance-protocol";
 import { ClosestEnemiesProtocol } from "./battlefield.protocol-enemies-closest";
 
