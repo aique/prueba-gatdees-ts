@@ -32,4 +32,16 @@ describe("Battlefield controller validation", () => {
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.send).toHaveBeenCalledWith('{"x":0,"y":40}');
     });
+
+    test('prioritize mech test', async () => {
+        const req = getMockReq();
+        const { res, next } = getMockRes();
+        
+        req.body = BattlefieldDataGenerator.getPrioritizeMechCase();
+
+        await controller.actionRadar(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.send).toHaveBeenCalledWith('{"x":0,"y":80}');
+    });
 });

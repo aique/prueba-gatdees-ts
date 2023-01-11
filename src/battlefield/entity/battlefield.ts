@@ -36,8 +36,7 @@ export class Battlefield {
      * ataque que cumplen con los protocolos
      * y simplemente retorna el primero de ellos.
      */
-    nextTarget(): BattlefieldTarget|null
-    {
+    nextTarget(): BattlefieldTarget|null {
         let prioritizedTargets: BattlefieldTarget[] = this.attackStrategy.prioritizeTargets(this.targets);
 
         if (!prioritizedTargets.length) {
