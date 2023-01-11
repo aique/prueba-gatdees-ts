@@ -12,6 +12,7 @@ import { ClosestEnemiesProtocol } from "../battlefield/strategy/protocol/distanc
 import { AvoidCrossfireProtocol } from "../battlefield/strategy/protocol/battlefield.protocol-avoid-crossfire";
 import { PrioritizeMechProtocol } from "../battlefield/strategy/protocol/battlefield.protocol-mech-prioritize";
 import { AvoidMechProtocol } from "../battlefield/strategy/protocol/battlefield.protocol-mech-avoid";
+import { DistanceDiscardCriteria } from "../battlefield/discards/battlefield.distance-discard-criteria";
 
 export default function configureDI(): IDIContainer {
   const container: DIContainer = new DIContainer();
@@ -42,6 +43,7 @@ export default function configureDI(): IDIContainer {
       use(BattlefieldValidator),
       use(BattlefieldTargetSerializer),
       use(BattlefieldStrategySerializer),
+      [new DistanceDiscardCriteria()]
     ),
     [BattlefieldController.name]: object(BattlefieldController).construct(
       use(BattlefieldMapper)

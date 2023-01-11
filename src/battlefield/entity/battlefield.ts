@@ -1,19 +1,19 @@
 import { BattlefieldAttackStrategy } from "../strategy/battlefield.strategy";
-import { BattlefieldCoordinates } from "./battlefield.coordinates";
 import { BattlefieldTarget } from "./battlefield.target";
 import * as dotenv from "dotenv";
+import { BattlefieldDiscardCriteria } from "../discards/battlefield.discard-criteria";
 
 dotenv.config();
 
 export class Battlefield {
-    readonly DISCARDED_DISTANCE = parseInt(process.env.DISCARDED_DISTANCE || '100');
-
     private targets: BattlefieldTarget[];
     private attackStrategy: BattlefieldAttackStrategy;
+    private discardCriterias: BattlefieldDiscardCriteria[];
 
-    constructor(attackStrategy: BattlefieldAttackStrategy) {
+    constructor(attackStrategy: BattlefieldAttackStrategy, discardCriterias: BattlefieldDiscardCriteria[]) {
         this.targets = [];
         this.attackStrategy = attackStrategy;
+        this.discardCriterias = discardCriterias;
     }
 
     addTarget(target: BattlefieldTarget): boolean {
@@ -26,8 +26,16 @@ export class Battlefield {
         return true;
     }
 
-    isDiscarded(target: BattlefieldTarget): boolean { // TODO criterios de descarte ampliables
-        return target.getDistance(new BattlefieldCoordinates(0, 0)) > this.DISCARDED_DISTANCE;
+    isDiscarded(target: BattlefieldTarget): boolean {
+        for (let i: number = 0; i < this.discardCriterias.length; i++) {
+            const currentDiscardCriteria: BattlefieldDiscardCriteria = this.discardCriterias[i];
+
+            if (currentDiscardCriteria.isDiscarded(target)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     getTargets(): BattlefieldTarget[] {
