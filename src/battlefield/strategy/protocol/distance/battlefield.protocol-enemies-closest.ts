@@ -1,5 +1,6 @@
 import { BattlefieldCoordinates } from "../../../entity/battlefield.coordinates";
 import { BattlefieldTarget } from "../../../entity/battlefield.target";
+import { BattlefieldProtocolFactory } from "../battlefield.protocol-factory";
 import { DistanceAbstractProtocol } from "./battlefield.abstract-distance-protocol";
 import { FurthestEnemiesProtocol } from "./battlefield.protocol-enemies-furthest";
 
@@ -21,10 +22,13 @@ export class ClosestEnemiesProtocol extends DistanceAbstractProtocol {
         return closestEnemyDistance;
     }
 
-    public getIncompatibleProtocols(): string[]
-    {
+    public getIncompatibleProtocols(): string[] {
         return [
             FurthestEnemiesProtocol.name,
         ];
+    }
+
+    getName(): string {
+        return BattlefieldProtocolFactory.CLOSEST_ENEMIES_PROTOCOL;
     }
 }

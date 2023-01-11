@@ -21,10 +21,13 @@ export class FurthestEnemiesProtocol extends DistanceAbstractProtocol {
         return furthestEnemyDistance;
     }
 
-    public getIncompatibleProtocols(): string[]
-    {
+    public getIncompatibleProtocols(): string[] {
         return [
             ClosestEnemiesProtocol.name,
         ];
+    }
+
+    getName(): string {
+        return BattlefieldProtocolFactory.FURTHEST_ENEMIES_PROTOCOL;
     }
 }

@@ -56,4 +56,16 @@ describe("Battlefield controller validation", () => {
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.send).toHaveBeenCalledWith('{"x":0,"y":10}');
     });
+
+    test('incompatible protocols test', async () => {
+        const req = getMockReq();
+        const { res, next } = getMockRes();
+        
+        req.body = BattlefieldDataGenerator.getIncompatibleProtocolsCase();
+
+        await controller.actionRadar(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.send).toHaveBeenCalledWith('Incompatible protocols between prioritize-mech and avoid-mech');
+    })
 });

@@ -19,4 +19,6 @@ export interface BattlefieldProtocol {
      * de prioridad es menor, con lo que deberá aplicararse después.
      */
     isDependent(protocol: BattlefieldProtocol): boolean;
+
+    getName(): string;
 }

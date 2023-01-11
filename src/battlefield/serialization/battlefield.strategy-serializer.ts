@@ -1,3 +1,4 @@
+import { IncompatibleProtocolsError } from "../error/battlefield.incompatible-protocols-error";
 import { IncompatibleProtocol } from "../strategy/battlefield.incompatible-protocol";
 import { BattlefieldAttackStrategy } from "../strategy/battlefield.strategy";
 import { BattlefieldProtocol } from "../strategy/protocol/battlefield.protocol";
@@ -21,7 +22,7 @@ export class BattlefieldStrategySerializer {
                 const incompatibleProtocols: IncompatibleProtocol|null = attackStrategy.isCompatible(protocol);
 
                 if (incompatibleProtocols != null) {
-                    throw new Error("Incompatible protocols");
+                    throw new IncompatibleProtocolsError(incompatibleProtocols);
                 }
 
                 attackStrategy.addProtocol(protocol);

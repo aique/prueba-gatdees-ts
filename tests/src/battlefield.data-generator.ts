@@ -26,7 +26,9 @@ export class BattlefieldDataGenerator {
 
     static getPrioritizeMechCase(): BattlefieldSchemaType {
         return {
-            'protocols':['prioritize-mech'],
+            'protocols':[
+                BattlefieldProtocolFactory.PRIORITIZE_MECH_PROTOCOL
+            ],
             'scan':[{
                 'coordinates': {'x': 0, 'y': 40},
                 'enemies':{
@@ -46,7 +48,10 @@ export class BattlefieldDataGenerator {
 
     static getMultipleProtocolsCase(): BattlefieldSchemaType {
         return {
-            'protocols':['closest-enemies', 'avoid-mech'],
+            'protocols':[
+                BattlefieldProtocolFactory.CLOSEST_ENEMIES_PROTOCOL,
+                BattlefieldProtocolFactory.AVOID_MECH_PROTOCOL
+            ],
             'scan':[{
                 'coordinates': {'x': 0, 'y': 1},
                 'enemies':{
@@ -66,6 +71,23 @@ export class BattlefieldDataGenerator {
                     'number': 1
                 }
             }]
+        };
+    }
+
+    static getIncompatibleProtocolsCase(): BattlefieldSchemaType {
+        return {
+            'protocols': [
+                BattlefieldProtocolFactory.PRIORITIZE_MECH_PROTOCOL,
+                BattlefieldProtocolFactory.AVOID_MECH_PROTOCOL,
+            ],
+            'scan': [{
+                'coordinates': {'x': 0, 'y': 40},
+                'allies': 5,
+                'enemies': {
+                    'number': 10,
+                    'type': BattlefieldEnemy.SOLDIER_TYPE
+                },
+            }],
         };
     }
 }

@@ -36,6 +36,8 @@ export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol
         return this.getDependencies().indexOf(protocol.constructor.name) != -1;
     }
 
+    abstract getName(): string;
+
     /**
      * Establece aquellos protocolos
      * que han de aplicarse previamente,
