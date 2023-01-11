@@ -11,7 +11,7 @@ export class BattlefieldController {
         this.mapper = mapper;
     }
     
-    public async actionRadar(req: Request, res: Response) {
+    async actionRadar(req: Request, res: Response) {
         try {
             const battlefield: Battlefield = this.mapper.map(req.body);
             const nextTarget: BattlefieldTarget|null = battlefield.nextTarget();

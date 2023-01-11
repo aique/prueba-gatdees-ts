@@ -28,10 +28,10 @@ Las peticiones serán atendidas por defecto en la siguiente url base, siendo el 
 http://localhost:8888
 ```
 
-Los tests proporcionados por la Nueva República podrán ejecutarse una vez arrancado el sistema mediante el siguiente comando:
+Durante el desarrollo se ha creado una batería de tests tanto unitarios como a nivel de aplicación. Para ejecutarlos simplemente será necesario lanzar el siguiente comando:
 
 ```
-./tests/bin/tests.sh
+npm test
 ```
 
 ### Comprobando los test de la Nueva República
@@ -51,6 +51,7 @@ El resultado debería ser algo similar a lo siguiente:
 ## Documentación
 
 * [Modelo de datos](./doc/entities.md)
+* [Configuraciones](./doc/configs.md)
 * [Inclusión de nuevos protocolos](./doc/new-protocols.md)
 * [Complejidades](./doc/complexity.md)
 * [Librerías utilizadas](./doc/libraries.md)

@@ -1,9 +1,12 @@
 import { BattlefieldAttackStrategy } from "../strategy/battlefield.strategy";
 import { BattlefieldCoordinates } from "./battlefield.coordinates";
 import { BattlefieldTarget } from "./battlefield.target";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export class Battlefield {
-    readonly DISCARDED_DISTANCE = 100;
+    readonly DISCARDED_DISTANCE = parseInt(process.env.DISCARDED_DISTANCE || '100');
 
     private targets: BattlefieldTarget[];
     private attackStrategy: BattlefieldAttackStrategy;

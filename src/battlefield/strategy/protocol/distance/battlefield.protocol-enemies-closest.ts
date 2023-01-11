@@ -22,7 +22,7 @@ export class ClosestEnemiesProtocol extends DistanceAbstractProtocol {
         return closestEnemyDistance;
     }
 
-    public getIncompatibleProtocols(): string[] {
+    getIncompatibleProtocols(): string[] {
         return [
             FurthestEnemiesProtocol.name,
         ];
