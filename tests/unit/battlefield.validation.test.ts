@@ -1,10 +1,11 @@
-import { BattlefieldValidatorFactory } from "../../src/battlefield/validation/battlefield.factory";
 import { BattlefieldValidator } from "../../src/battlefield/validation/battlefield.validator";
+import { IDIContainer } from 'rsdi';
+import configureDI from "../../src/config/deps";
+
+const container: IDIContainer = configureDI();
 
 describe("Battlefield input validation", () => {
-  const validator = new BattlefieldValidator(
-    new BattlefieldValidatorFactory()
-  );
+  const validator: BattlefieldValidator = container.get(BattlefieldValidator);
 
   test("basic battlefield data validation", () => {
     expect(validator.isValid(JSON.parse('{}'))).toBe(false);

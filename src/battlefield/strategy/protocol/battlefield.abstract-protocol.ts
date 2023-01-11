@@ -33,7 +33,7 @@ export abstract class BattlefieldAbstractProtocol implements BattlefieldProtocol
      */
     protected abstract meetRequirements(target: BattlefieldTarget): boolean;
 
-    public isDependent(protocol: BattlefieldProtocol): boolean {
+    isDependent(protocol: BattlefieldProtocol): boolean {
         return this.getDependencies().indexOf(protocol.constructor.name) != -1;
     }
 

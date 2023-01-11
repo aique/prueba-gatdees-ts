@@ -17,7 +17,7 @@ export class BattlefieldProtocolFactory {
     create(name: string): BattlefieldProtocol|null {
         this.protocols.forEach(protocol => {
             if (protocol.name === name) {
-                return protocol.value;
+                return protocol.value; // TODO revisar funcionamiento
             }
         });
 

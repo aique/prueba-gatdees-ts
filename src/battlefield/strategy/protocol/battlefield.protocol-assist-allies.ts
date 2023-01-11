@@ -12,7 +12,7 @@ export class AssistAlliesProtocol extends BattlefieldAbstractProtocol
         return [];
     }
 
-    public getDependencies(): string[] {
+    getDependencies(): string[] {
         return [];
     }
 }

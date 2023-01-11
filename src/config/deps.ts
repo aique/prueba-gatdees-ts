@@ -23,11 +23,10 @@ export default function configureDI(): IDIContainer {
       {name: BattlefieldProtocolFactory.PRIORITIZE_MECH_PROTOCOL, value: use(AssistAlliesProtocol)},
       {name: BattlefieldProtocolFactory.AVOID_MECH_PROTOCOL, value: use(AssistAlliesProtocol)},
     ]),
-
     /**
      * Battlefield
      */
-    [BattlefieldValidatorFactory.name]: object(BattlefieldValidatorFactory).construct(),
+    [BattlefieldValidatorFactory.name]: object(BattlefieldValidatorFactory),
     [BattlefieldTargetSerializer.name]: object(BattlefieldTargetSerializer),
     [BattlefieldStrategySerializer.name]: object(BattlefieldStrategySerializer).construct(
       use(BattlefieldProtocolFactory)
