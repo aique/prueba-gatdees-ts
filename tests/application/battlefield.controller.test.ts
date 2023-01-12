@@ -17,7 +17,7 @@ describe("Battlefield controller validation", () => {
 
         await controller.actionRadar(req, res);
 
-        expect(res.status).toHaveBeenCalledWith(500);
+        expect(res.status).toHaveBeenCalledWith(400);
         expect(res.send).toHaveBeenCalledWith('Invalid battlefield info');
     });
 

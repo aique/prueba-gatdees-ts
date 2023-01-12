@@ -5,6 +5,7 @@ import { BattlefieldSchemaType } from "./validation/battlefield.schema";
 import { BattlefieldTargetSerializer } from "./serialization/battlefield.target-serializer";
 import { BattlefieldStrategySerializer } from "./serialization/battlefield.strategy-serializer";
 import { BattlefieldDiscardCriteria } from "./discards/battlefield.discard-criteria";
+import { InvalidBattlefieldDescriptionError } from "./error/battlefield.invalid-battlefield-error copy";
 
 export class BattlefieldMapper {
     private validator: BattlefieldValidator;
@@ -26,7 +27,7 @@ export class BattlefieldMapper {
 
     map(battlefieldInfo: unknown): Battlefield {
         if (!this.validator.isValid(battlefieldInfo)) {
-            throw new Error("Invalid battlefield info");
+            throw new InvalidBattlefieldDescriptionError();
         }
 
         const attackStrategy: BattlefieldAttackStrategy = this.strategySerializer.deserialize((battlefieldInfo as BattlefieldSchemaType).protocols)

@@ -8,7 +8,7 @@ export class IncompatibleProtocolsError extends Error {
         this.incompatibleProtocol = incompatibleProtocol;
     }
 
-    getMessagge(): string {
+    getMessage(): string {
         const protocol1Name: string = this.incompatibleProtocol.getProtocol1().getName();
         const protocol2Name: string = this.incompatibleProtocol.getProtocol2().getName();
 

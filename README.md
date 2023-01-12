@@ -53,6 +53,7 @@ El resultado debería ser algo similar a lo siguiente:
 * [Modelo de datos](./doc/entities.md)
 * [Configuraciones](./doc/configs.md)
 * [Inclusión de nuevos protocolos](./doc/new-protocols.md)
+* [Inclusión de nuevos criterios de descarte](./doc/new-discard-criteria.md)
 * [Complejidades](./doc/complexity.md)
 * [Librerías utilizadas](./doc/libraries.md)
 * [Requisitos originales](./doc/requirements.pdf)

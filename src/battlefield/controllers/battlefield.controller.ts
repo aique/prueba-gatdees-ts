@@ -3,6 +3,7 @@ import { BattlefieldMapper } from "../battlefield.mapper";
 import { Battlefield } from "../entity/battlefield";
 import { BattlefieldTarget } from "../entity/battlefield.target";
 import { IncompatibleProtocolsError } from "../error/battlefield.incompatible-protocols-error";
+import { InvalidBattlefieldDescriptionError } from "../error/battlefield.invalid-battlefield-error copy";
 
 export class BattlefieldController {
     private mapper: BattlefieldMapper;
@@ -23,8 +24,10 @@ export class BattlefieldController {
 
             res.status(400).send('Next target not found');
         } catch (err: any) {
-            if (err instanceof IncompatibleProtocolsError) {
-                res.status(400).send(err.getMessagge());
+            if (err instanceof IncompatibleProtocolsError ||
+                err instanceof InvalidBattlefieldDescriptionError)
+            {
+                res.status(400).send(err.getMessage());
                 return;
             }
 
